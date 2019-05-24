@@ -1,0 +1,68 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Attach to the node process, which must be started with --inspect for debugging.
+      "name": "Attach 9229",
+      "type": "node",
+      "request": "attach",
+      "port": 9229
+    },
+    {
+      // Doesn't work for create-react-apps.  Error in import react.
+      "name": "Launch via Node",
+      "type": "node",
+      "request": "launch",
+      "program": "${file}"
+    },
+    {
+      // Should start a create-react-app using npm start but seems to get an error.
+      // It works if you just run npm start.  Not sure what the difference is.
+      // Also tried npm --inspect but same error.
+      "name": "Launch via NPM",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${fileDirname}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "start"
+      ]
+    },
+    {
+      // Launch Debugger in Chrome on port 3000 on running server, in remote dedugging mode and connect to the remote debug port.
+      // You need to start the server manually first.
+      "name": "Launch Chrome TicTacToe",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Launch js via node",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/${file}"
+    },
+    {
+      "name": "Launch Chrome port 3000",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:3000",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Build and run testTypeScript",
+      "type": "node",
+      "request": "launch",
+      //"program": "${file}",
+      "program": "${workspaceFolder}/testTypeScript.ts",
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ]
+    },
+  ]
+}
