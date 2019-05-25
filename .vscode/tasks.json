@@ -16,6 +16,18 @@
       "type": "shell",
       "command": "node",
       "args": [
+        "${relativeFile}"
+      ],
+      "group": "build",
+      "problemMatcher": [
+        "$jshint"
+      ]
+    },
+    {
+      "label": "Run javascript.bak",
+      "type": "shell",
+      "command": "node",
+      "args": [
         "${file}"
       ],
       "group": "build",

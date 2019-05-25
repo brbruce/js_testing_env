@@ -1,0 +1,19 @@
+{
+  "name": "jstesting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "contigblocks.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brbruce/js_testing_env.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brbruce/js_testing_env/issues"
+  },
+  "homepage": "https://github.com/brbruce/js_testing_env#readme"
+}

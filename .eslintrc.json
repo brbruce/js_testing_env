@@ -19,5 +19,7 @@
   "plugins": [
     "react"
   ],
-  "rules": {}
+  "rules": {
+    "no-console": "off"
+  }
 }
