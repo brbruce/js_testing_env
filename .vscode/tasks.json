@@ -16,18 +16,6 @@
       "type": "shell",
       "command": "node",
       "args": [
-        "${relativeFile}"
-      ],
-      "group": "build",
-      "problemMatcher": [
-        "$jshint"
-      ]
-    },
-    {
-      "label": "Run javascript.bak",
-      "type": "shell",
-      "command": "node",
-      "args": [
         "${file}"
       ],
       "group": "build",
@@ -35,5 +23,37 @@
         "$jshint"
       ]
     },
+    {
+      // Automatically generated task for typescript build.
+      // See https://code.visualstudio.com/docs/editor/tasks#_typescript-hello-world
+      // Label is automatically set to "tsc: build - tsconfig.json"
+      //"label": "tsc: build - tsconfig.json",
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "problemMatcher": [
+        "$tsc"
+      ],
+      "group": "build",
+      // "group": { // Can make it the default build task if desired
+      //   "kind": "build",
+      //   "isDefault": true
+      // }
+    },
+    {
+      // Automatically generated task for typescript watch. Will recompile js files when ts files are saved.
+      // See https://code.visualstudio.com/docs/editor/tasks#_typescript-hello-world
+      // Label is automatically set to "tsc: watch - tsconfig.json"
+      //"label": "tsc: watch - tsconfig.json",
+      "type": "typescript",
+      "tsconfig": "tsconfig.json",
+      "option": "watch",
+      "problemMatcher": [
+        "$tsc-watch"
+      ],
+      // "group": { // Can make it the default build task if desired
+      //   "kind": "build",
+      //   "isDefault": true
+      // }
+    }
   ]
 }

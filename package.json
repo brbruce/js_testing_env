@@ -4,6 +4,10 @@
   "description": "",
   "main": "contigblocks.js",
   "scripts": {
+    "start": "node contigblocks.js",
+    "debug": "node --nolazy --inspect-brk=9229 contigblocks.js",
+    "start-ts": "node out/testTypeScript.js",
+    "debug-ts": "node --nolazy --inspect-brk=9229 out/testTypeScript.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +19,12 @@
   "bugs": {
     "url": "https://github.com/brbruce/js_testing_env/issues"
   },
-  "homepage": "https://github.com/brbruce/js_testing_env#readme"
+  "homepage": "https://github.com/brbruce/js_testing_env#readme",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0"
+  }
 }

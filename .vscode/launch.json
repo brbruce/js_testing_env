@@ -5,48 +5,40 @@
   "version": "0.2.0",
   "configurations": [
     {
-      // Attach to the node process, which must be started with --inspect for debugging.
-      "name": "Attach 9229",
-      "type": "node",
-      "request": "attach",
-      "port": 9229
-    },
-    {
-      // Doesn't work for create-react-apps.  Error in import react.
+      // Launch debugger on JS file. (Make sure the js file is selected)
+      // Works for normal JS files. (Doesn't work for create-react-apps.  Error in import react.)
+      //
+      // C:\Program Files\nodejs\node.exe --inspect-brk=26312 contigblocks.js 
+      // Debugger listening on ws: //127.0.0.1:26312/32601569-ee4d-4d96-b120-33fe80c571a7 
       "name": "Launch via Node",
       "type": "node",
       "request": "launch",
       "program": "${file}"
     },
     {
-      // Should start a create-react-app using npm start but seems to get an error.
-      // It works if you just run npm start.  Not sure what the difference is.
-      // Also tried npm --inspect but same error.
+      // Launch debugger on JS file. (Make sure the js file is selected)
+      //
+      // See https://code.visualstudio.com/docs/nodejs/nodejs-debugging#_launch-configuration-support-for-npm-and-other-tools
+      // Must set up a "debug" script in package.json like this:
+      // "debug": "node --nolazy --inspect-brk=9229 contigblocks.js",
+      //
+      // C:\Program Files\nodejs\npm.cmd run debug 
+      // Debugger listening on ws: //127.0.0.1:9229/a3a52159-7c22-4e8f-80f9-886e4ada4262 
       "name": "Launch via NPM",
       "type": "node",
       "request": "launch",
-      "cwd": "${fileDirname}",
+      //"cwd": "${fileDirname}",
+      "cwd": "${workspaceFolder}",
       "runtimeExecutable": "npm",
       "runtimeArgs": [
-        "start"
-      ]
+        "run",
+        "debug"
+      ],
+      "port": 9229
     },
     {
       // Launch Debugger in Chrome on port 3000 on running server, in remote dedugging mode and connect to the remote debug port.
       // You need to start the server manually first.
-      "name": "Launch Chrome TicTacToe",
-      "type": "chrome",
-      "request": "launch",
-      "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "name": "Launch js via node",
-      "type": "node",
-      "request": "launch",
-      "program": "${workspaceFolder}/${file}"
-    },
-    {
       "name": "Launch Chrome port 3000",
       "type": "chrome",
       "request": "launch",
@@ -54,15 +46,40 @@
       "webRoot": "${workspaceFolder}"
     },
     {
-      "name": "Build and run testTypeScript",
+      // Attach to a node process, which must be started with --inspect or --inspect-brk for debugging.
+      // You can manually start a npm script in debug mode with:
+      // node --nolazy --inspect-brk=9229 contigblocks.js
+      "name": "Attach 9229 for js",
+      "type": "node",
+      "request": "attach",
+      "port": 9229
+    },
+    //-----------------------
+    // Typescript examples
+    //-----------------------
+    {
+      // Launch debugger on Typescript file. (Make sure the ts file is selected)
+      "name": "Launch typescript via node testTypeScript",
       "type": "node",
       "request": "launch",
-      //"program": "${file}",
-      "program": "${workspaceFolder}/testTypeScript.ts",
+      "program": "${file}",
+      //"program": "${workspaceFolder}/testTypeScript.ts",
       "preLaunchTask": "tsc: build - tsconfig.json",
       "outFiles": [
         "${workspaceFolder}/out/**/*.js"
       ]
+    },
+    {
+      // Attach to a node process for typescript, which must be started with --inspect or --inspect-brk for debugging.
+      // You can manually start a npm script in debug mode with:
+      // node --nolazy --inspect-brk=9229 out/testTypeScript.js
+      "name": "Attach 9229 for typescript",
+      "type": "node",
+      "request": "attach",
+      "outFiles": [
+        "${workspaceFolder}/out/**/*.js"
+      ],
+      "port": 9229
     },
   ]
 }

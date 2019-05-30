@@ -7,7 +7,7 @@ const generateNodes = ({
 }) => (
   // Implicit return of single statement, so no "{}" or "return" required.
   Array(
-    numberOfColumns * numberOfRows
+    numberOfColumns * numberOfRows,
   )
   .fill()
   .map((
@@ -54,6 +54,7 @@ const colors = [
   'blue'    // 2
 ]
 
+// eslint-disable-next-line no-unused-vars
 const addAdjacencies1 = (
   nodes,
 ) => (
